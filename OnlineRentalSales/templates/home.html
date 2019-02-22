@@ -1,0 +1,73 @@
+
+{% load staticfiles %}
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <title>Home</title>
+  </head>
+  <body>
+
+  {% include 'head.html' %}
+  {% include 'menu.html' %}
+
+<div class="container">
+<div class="row">
+<div class="col">
+
+
+
+{% if name %}
+<div class="container " >
+<center><h1 style="margin-top: 150px"> Welcome {{ name }}</h1></center>
+{% endif %}
+
+{% if messages %}
+{#<ul class="messages">#}
+{#    {% for message in messages %}#}
+{#    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+
+    <div style="margin-top: 100px">
+    {% for message in messages %}
+
+        <center><h1>
+            {{ message }}</h1></center>
+    {% endfor %}
+{% endif %}
+  </div>
+
+
+  <div style="margin-top: 100px">
+  {% if msg %}<center><h1>{{ msg }}</h1></center>{% endif %}
+  {% if deleteuser %}<center><h1>{{ deleteuser }}</h1></center>{% endif %}
+  </div>
+    </div>
+</div>
+<div class="col">
+
+   <a href="/changepw/" class="badge badge-primary">Change Password</a>
+<a href="/adduser/" class="badge badge-secondary">Add User</a>
+<a href="/viewusers/" class="badge badge-success">View User</a>
+<a href="/deleteuser/" class="badge badge-danger">Delete User</a>
+
+
+</div>
+</div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
